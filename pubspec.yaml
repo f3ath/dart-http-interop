@@ -1,0 +1,17 @@
+name: http_interop
+description: A package that provides interoperability between different HTTP client and server libraries.
+version: 0.0.1
+
+environment:
+  sdk: ^2.19.0
+
+dev_dependencies:
+  lints: ^2.0.1
+  cider: ^0.1.5
+  test: ^1.21.1
+  check_coverage: ^0.0.2
+
+cider:
+  link_template:
+    tag: 'https://github.com/f3ath/dart-http-interop/releases/tag/%tag%'
+    diff: 'https://github.com/f3ath/dart-http-interop/compare/%from%...%to%'
