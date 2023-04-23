@@ -4,11 +4,11 @@ import 'package:test/test.dart';
 void main() {
   group('LoggingHandler', () {
     test('can log', () async {
-      final tx = <Request>[];
-      final rx = <Response>[];
+      final tx = <HttpRequest>[];
+      final rx = <HttpResponse>[];
       final handler =
           LoggingHandler(OkHandler(), onRequest: tx.add, onResponse: rx.add);
-      final request = Request('GET', Uri.parse('https://example.com'))
+      final request = HttpRequest('GET', Uri.parse('https://example.com'))
         ..headers['accept'] = 'text/plain';
       final response = await handler.handle(request);
       expect(tx, equals([request]));
@@ -17,8 +17,8 @@ void main() {
   });
 }
 
-class OkHandler implements Handler {
+class OkHandler implements HttpHandler {
   @override
-  Future<Response> handle(Request request) async =>
-      Response(200, body: 'OK')..headers['content-type'] = 'text/plain';
+  Future<HttpResponse> handle(HttpRequest request) async =>
+      HttpResponse(200, body: 'OK')..headers['content-type'] = 'text/plain';
 }

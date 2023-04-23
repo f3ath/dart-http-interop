@@ -1,17 +1,17 @@
-import 'package:http_interop/src/handler.dart';
-import 'package:http_interop/src/request.dart';
-import 'package:http_interop/src/response.dart';
+import 'package:http_interop/src/http_handler.dart';
+import 'package:http_interop/src/http_request.dart';
+import 'package:http_interop/src/http_response.dart';
 
-/// A wrapper over [Handler] which allows logging
-class LoggingHandler implements Handler {
+/// A wrapper over [HttpHandler] which allows logging
+class LoggingHandler implements HttpHandler {
   LoggingHandler(this.handler, {this.onRequest, this.onResponse});
 
-  final Handler handler;
-  final Function(Request request)? onRequest;
-  final Function(Response response)? onResponse;
+  final HttpHandler handler;
+  final Function(HttpRequest request)? onRequest;
+  final Function(HttpResponse response)? onResponse;
 
   @override
-  Future<Response> handle(Request request) async {
+  Future<HttpResponse> handle(HttpRequest request) async {
     onRequest?.call(request);
     final response = await handler.handle(request);
     onResponse?.call(response);
