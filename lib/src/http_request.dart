@@ -1,8 +1,8 @@
-import 'package:http_interop/src/message.dart';
+import 'package:http_interop/src/http_message.dart';
 
 /// The request which is sent by the client and received by the server
-class Request extends Message {
-  Request(String method, this.uri, {String body = ''})
+class HttpRequest extends HttpMessage {
+  HttpRequest(String method, this.uri, {String body = ''})
       : method = method.toLowerCase(),
         super(body);
 
