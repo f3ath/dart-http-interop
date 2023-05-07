@@ -1,3 +1,10 @@
+## [0.3.0] - 2023-05-07
+### Added
+- HttpMethod class
+
+### Changed
+- Request and Response signature
+
 ## [0.2.0] - 2023-05-06
 ### Added
 - Binary messages support
@@ -14,6 +21,7 @@
 ### Added
 - Initial release
 
+[0.3.0]: https://github.com/f3ath/dart-http-interop/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/f3ath/dart-http-interop/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/f3ath/dart-http-interop/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/f3ath/dart-http-interop/compare/0.0.1...0.0.2
