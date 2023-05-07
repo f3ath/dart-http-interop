@@ -1,9 +1,20 @@
-import 'package:http_interop/src/http_headers.dart';
+import 'dart:typed_data';
 
-/// HTTP message. Request or Response.
-class HttpMessage with HttpHeaders {
-  HttpMessage(this.body);
+import 'package:http_interop/http_interop.dart';
 
-  /// Message body
-  final String body;
+/// An HTTP message where the body is known.
+class HttpMessage {
+  HttpMessage(String body, this.headers)
+      : bodyBytes = Uint8List.fromList(headers.encoding.encode(body));
+
+  HttpMessage.binary(this.bodyBytes, this.headers);
+
+  /// Message headers.
+  final HttpHeaders headers;
+
+  /// The bytes comprising the body of this response.
+  final Uint8List bodyBytes;
+
+  /// Message body.
+  String get body => headers.encoding.decode(bodyBytes);
 }

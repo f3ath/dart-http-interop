@@ -1,10 +1,18 @@
-import 'package:http_interop/src/http_message.dart';
+import 'dart:typed_data';
+
+import 'package:http_interop/http_interop.dart';
 
 /// The request which is sent by the client and received by the server
 class HttpRequest extends HttpMessage {
-  HttpRequest(String method, this.uri, {String body = ''})
+  HttpRequest(String method, this.uri,
+      {String body = '', Map<String, String> headers = const {}})
       : method = method.toLowerCase(),
-        super(body);
+        super(body, HttpHeaders(headers));
+
+  HttpRequest.binary(String method, this.uri, Uint8List bodyBytes,
+      {Map<String, String> headers = const {}})
+      : method = method.toLowerCase(),
+        super.binary(bodyBytes, HttpHeaders(headers));
 
   /// Requested URI
   final Uri uri;
