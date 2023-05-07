@@ -14,5 +14,11 @@ void main() {
       final r = HttpResponse.binary(200, bodyBytes);
       expect(r.bodyBytes, equals(bodyBytes));
     });
+    test('body is set in UTF', () {
+      final r = HttpResponse(200, body: 'привет', headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+      });
+      expect(r.body, equals('привет'));
+    });
   });
 }

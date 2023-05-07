@@ -9,6 +9,12 @@ void main() {
       final r = HttpRequest('get', Uri(), body: 'foo');
       expect(r.body, equals('foo'));
     });
+    test('body is set in UTF', () {
+      final r = HttpRequest('get', Uri(), body: 'привет', headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+      });
+      expect(r.body, equals('привет'));
+    });
     test('binary body is set', () {
       final bodyBytes = Uint8List.fromList([0, 1, 2, 3, 254, 255]);
       final r = HttpRequest.binary('get', Uri(), bodyBytes);
