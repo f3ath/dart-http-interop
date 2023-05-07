@@ -1,4 +1,4 @@
-final class HttpMethod {
+class HttpMethod {
   HttpMethod(String name) : name = name.trim().toUpperCase() {
     if (name.isEmpty) throw ArgumentError('Method name cannot be empty');
   }

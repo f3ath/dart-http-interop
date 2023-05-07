@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:http_interop/http_interop.dart';
 
 /// The request which is sent by the client and received by the server
-final class HttpRequest extends HttpMessage {
+class HttpRequest extends HttpMessage {
   HttpRequest(String method, this.uri, String body,
       {Map<String, String> headers = const {}})
       : method = HttpMethod(method),
