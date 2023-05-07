@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:http_interop/http_interop.dart';
-import 'package:http_interop/src/http_method.dart';
 
 /// The request which is sent by the client and received by the server
 final class HttpRequest extends HttpMessage {
