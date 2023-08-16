@@ -12,9 +12,8 @@ class HttpHeaders extends CaseInsensitiveMap<String> {
 
   /// Returns the [MediaType] object for this headers.
   /// Defaults to `application/octet-stream`.
-  MediaType get mediaType {
-    final contentType = this['content-type'];
-    if (contentType != null) return MediaType.parse(contentType);
-    return MediaType('application', 'octet-stream');
-  }
+  MediaType get mediaType => switch (this) {
+        {'content-type': String contentType} => MediaType.parse(contentType),
+        _ => MediaType('application', 'octet-stream')
+      };
 }
