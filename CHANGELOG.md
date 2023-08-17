@@ -1,3 +1,11 @@
+## [0.6.0] - 2023-08-16
+### Changed
+- Bump http to 1.1.0
+- `Request`/`Response` constructor signatures
+
+### Fixed
+- Removed dependency on the `http` package
+
 ## [0.4.0] - 2023-05-07
 ### Changed
 - Relaxed SDK version to 2.19
@@ -25,6 +33,7 @@
 ### Added
 - Initial release
 
+[0.6.0]: https://github.com/f3ath/dart-http-interop/compare/0.4.0...0.6.0
 [0.4.0]: https://github.com/f3ath/dart-http-interop/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/f3ath/dart-http-interop/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/f3ath/dart-http-interop/compare/0.1.0...0.2.0
