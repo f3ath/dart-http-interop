@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:http_interop/http_interop.dart';
+import 'package:http_interop/src/body.dart';
 
 extension BodyExt on Body {
   /// Decodes [body] using the given [encoding].
