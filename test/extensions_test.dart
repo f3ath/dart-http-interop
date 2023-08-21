@@ -6,8 +6,8 @@ import 'package:test/test.dart';
 
 void main() {
   group('Body', () {
-    test('decode', () {
-      expect(Body('привет', utf8).decode(utf8), equals('привет'));
+    test('decode', () async {
+      expect(await Body('привет', utf8).decode(utf8), equals('привет'));
     });
   });
 }
