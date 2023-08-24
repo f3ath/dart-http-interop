@@ -9,7 +9,7 @@ class Body {
 
   Body.stream(this.bytes);
 
-  static final empty = Body.binary(Uint8List(0));
+  Body.empty() : this.binary(Uint8List(0));
 
-  Stream<Uint8List> bytes;
+  final Stream<Uint8List> bytes;
 }

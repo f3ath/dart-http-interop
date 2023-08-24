@@ -9,7 +9,7 @@ void main() {
       final handler =
           LoggingHandler(OkHandler(), onRequest: tx.add, onResponse: rx.add);
       final request = Request(Method('GET'), Uri.parse('https://example.com'),
-          Body.empty, Headers({'accept': 'text/plain'}));
+          Body.empty(), Headers({'accept': 'text/plain'}));
       final response = await handler.handle(request);
       expect(tx, equals([request]));
       expect(rx, equals([response]));
@@ -20,5 +20,5 @@ void main() {
 class OkHandler implements Handler {
   @override
   Future<Response> handle(Request request) async =>
-      Response(200, Body.empty, Headers({'content-type': 'text/plain'}));
+      Response(200, Body.empty(), Headers({'content-type': 'text/plain'}));
 }
