@@ -4,10 +4,10 @@ import 'package:test/test.dart';
 void main() {
   group('Headers', () {
     test('are case-insensitive', () {
-      final headers = Headers({'Accept': 'text/plain'});
-      expect(headers['Accept'], equals('text/plain'));
-      expect(headers['accept'], equals('text/plain'));
-      expect(headers['AcCePt'], equals('text/plain'));
+      final headers = Headers({'Accept': ['text/plain']});
+      expect(headers['Accept']?.first, equals('text/plain'));
+      expect(headers['accept']?.first, equals('text/plain'));
+      expect(headers['AcCePt']?.first, equals('text/plain'));
     });
   });
 }

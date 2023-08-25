@@ -1,3 +1,7 @@
+## [0.8.0] - 2023-08-24
+### Changed
+- Split headers
+
 ## [0.7.1] - 2023-08-23
 ### Fixed
 - Body bytes must be immutable
@@ -42,6 +46,7 @@
 ### Added
 - Initial release
 
+[0.8.0]: https://github.com/f3ath/dart-http-interop/compare/0.7.1...0.8.0
 [0.7.1]: https://github.com/f3ath/dart-http-interop/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/f3ath/dart-http-interop/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/f3ath/dart-http-interop/compare/0.4.0...0.6.0
