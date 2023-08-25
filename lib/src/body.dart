@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-/// HTTP Body. 
+/// HTTP Body.
 /// Essentially it is just a `Stream<Uint8List>` with a few
-/// useful constructors. 
+/// useful constructors.
 class Body {
   /// Create a new instance from [text] encoded with [encoding].
   Body(String text, Encoding encoding)
