@@ -50,5 +50,4 @@ void main() {
       expect({Method('get'), Method('GET')}.length, equals(1));
     });
   });
-
 }
