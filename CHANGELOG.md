@@ -2,6 +2,9 @@
 ### Changed
 - Split headers
 
+### Removed
+- LoggingHandler
+
 ## [0.7.1] - 2023-08-23
 ### Fixed
 - Body bytes must be immutable
