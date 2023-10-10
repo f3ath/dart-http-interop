@@ -1,6 +1,10 @@
 import 'package:http_parser/http_parser.dart';
 
-/// HTTP headers is nothing but a case-insensitive map
+/// A collection of HTTP headers. The keys are case-insensitive.
 class Headers extends CaseInsensitiveMap<List<String>> {
-  Headers(Map<String, List<String>> headers) : super.from(headers);
+  /// Creates a new empty instance.
+  Headers();
+
+  /// Creates a new instance from a map.
+  Headers.from(Map<String, List<String>> headers) : super.from(headers);
 }
