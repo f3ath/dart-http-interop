@@ -2,11 +2,16 @@ import 'package:http_interop/http_interop.dart';
 
 /// The request which is sent by the client and received by the server
 class Request extends Message {
-  Request(this.method, this.uri, super.body, super.headers);
+  Request(String method, this.uri, super.body, super.headers)
+      : method = method.toLowerCase() {
+    if (method.trim().isEmpty) {
+      throw ArgumentError('Method name cannot be empty', 'method');
+    }
+  }
 
   /// Requested URI
   final Uri uri;
 
-  /// Request method.
-  final Method method;
+  /// Request method, lowercase.
+  final String method;
 }
