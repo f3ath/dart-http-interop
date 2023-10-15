@@ -45,13 +45,15 @@ void main() {
   });
 
   group('Body', () {
+    const object = {
+      'foo': [1, 2, true, 'Привет']
+    };
+    const json = '{"foo":[1,2,true,"Привет"]}';
+    test('json encode', () async {
+      expect(await Body.json(object).decode(utf8), equals(json));
+    });
     test('json encode/decode', () async {
-      final json = {
-        'foo': [1, 2, true, 'Привет']
-      };
-      final body = Body.json(json);
-      final decoded = await body.decode(utf8);
-      expect(decoded, equals('{"foo":[1,2,true,"Привет"]}'));
+      expect(await Body.text(json, utf8).decodeJson(), equals(object));
     });
   });
 }
