@@ -3,7 +3,7 @@ import 'package:http_interop/src/headers.dart';
 
 /// An HTTP message where the body is known.
 class Message {
-  const Message(this.body, this.headers);
+  Message(this.body, this.headers);
 
   /// Message headers.
   final Headers headers;

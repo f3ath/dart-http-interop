@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:http_interop/src/body.dart';
 import 'package:http_interop/src/headers.dart';
+import 'package:quoted_string/quoted_string.dart';
 
 extension HeadersExt on Headers {
   /// Combines multiple headers with the same name into a single string
   /// of comma-separated values.
   Map<String, String> combine() => map((key, values) => MapEntry(
-      key, values.map((it) => it.isHeaderSafe ? it : it.quoted).join(',')));
+      key, values.map((it) => it._isHeaderSafe ? it : it.quote()).join(',')));
 }
 
 extension BodyExt on Body {
@@ -19,9 +20,6 @@ extension BodyExt on Body {
 }
 
 extension StringExt on String {
-  /// The string quoted and escaped according to the multiheader escaping rules.
-  String get quoted => '"${replaceAll(r'\', r'\\').replaceAll('"', r'\"')}"';
-
   /// True if the string is safe to use as a header value.
-  bool get isHeaderSafe => isNotEmpty && !contains(',') && trim() == this;
+  bool get _isHeaderSafe => isNotEmpty && !contains(',') && trim() == this;
 }

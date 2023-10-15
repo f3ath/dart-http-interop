@@ -13,10 +13,10 @@ class Body {
       : this.binary(Uint8List.fromList(encoding.encode(text)));
 
   /// Create a new instance from a single piece of binary [data]..
-  Body.binary(Uint8List data) : this.streamed(Stream.value(data));
+  Body.binary(Uint8List data) : this.stream(Stream.value(data));
 
   /// Creates a new instance from a binary stream.
-  Body.streamed(this.bytes);
+  Body.stream(this.bytes);
 
   /// Creates a new instance by encoding the [object] into JSON.
   /// This method always uses UTF-8 encoding.
