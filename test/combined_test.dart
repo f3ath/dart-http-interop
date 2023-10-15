@@ -17,6 +17,7 @@ void main() {
       expect(() => Request(' ', Uri(), Body(), Headers()), throwsArgumentError);
     });
   });
+
   group('Response', () {
     test('ctor', () async {
       final r = Response(200, Body.text('привет', utf8), Headers());
@@ -24,6 +25,7 @@ void main() {
       expect(r.headers, isEmpty);
     });
   });
+
   group('Headers', () {
     test('are case-insensitive', () {
       final headers = Headers.from({
@@ -39,6 +41,17 @@ void main() {
       });
       expect(headers.combine(),
           equals({'My-Values': r'""," ",foo (bar),foo "bar"," foo","foo "'}));
+    });
+  });
+
+  group('Body', () {
+    test('json encode/decode', () async {
+      final json = {
+        'foo': [1, 2, true, 'Привет']
+      };
+      final body = Body.json(json);
+      final decoded = await body.decode(utf8);
+      expect(decoded, equals('{"foo":[1,2,true,"Привет"]}'));
     });
   });
 }
