@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:http_interop/extensions.dart';
 import 'package:http_interop/http_interop.dart';
@@ -35,13 +36,6 @@ void main() {
       expect(headers['accept']?.first, equals('text/plain'));
       expect(headers['AcCePt']?.first, equals('text/plain'));
     });
-    test('can be combined', () {
-      final headers = Headers.from({
-        'My-Values': ['', ' ', 'foo (bar)', 'foo "bar"', ' foo', 'foo ']
-      });
-      expect(headers.combine(),
-          equals({'My-Values': r'""," ",foo (bar),foo "bar"," foo","foo "'}));
-    });
   });
 
   group('Body', () {
@@ -54,6 +48,16 @@ void main() {
     });
     test('json encode/decode', () async {
       expect(await Body.text(json, utf8).decodeJson(), equals(object));
+    });
+    test('stream', () async {
+      final stream = Stream.value(Uint8List.fromList(ascii.encode('Hello')));
+      final body = Body.stream(stream);
+      expect(await body.decode(ascii), equals('Hello'));
+    });
+    test('empty body has empty stream', () async {
+      expect(await Body().bytes.isEmpty, isTrue);
+      expect(await Body.text('', utf8).bytes.isEmpty, isTrue);
+      expect(await Body.binary(Uint8List(0)).bytes.isEmpty, isTrue);
     });
   });
 }
