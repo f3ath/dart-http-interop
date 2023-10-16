@@ -6,6 +6,12 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
+  group('Body', () {
+    test('empty body has empty stream', () async {
+      expect(await Body.empty().bytes.isEmpty, isTrue);
+      expect(await Body('', utf8).bytes.isEmpty, isTrue);
+    });
+  });
   group('Request', () {
     test('ctor', () async {
       final r = Request(Method('get'), Uri(), Body.empty(), Headers({}));

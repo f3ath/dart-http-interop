@@ -10,13 +10,14 @@ class Body {
       : this.binary(Uint8List.fromList(encoding.encode(text)));
 
   /// Create a new instance from a single piece of binary [data]..
-  Body.binary(Uint8List data) : this.stream(Stream.value(data));
+  Body.binary(Uint8List data)
+      : this.stream(data.isEmpty ? Stream.empty() : Stream.value(data));
 
   /// Creates a new instance from a binary stream.
   Body.stream(this.bytes);
 
   /// Creates a new empty instance.
-  Body.empty() : this.binary(Uint8List(0));
+  Body.empty() : this.stream(Stream.empty());
 
   /// Request body as a binary stream.
   final Stream<Uint8List> bytes;
