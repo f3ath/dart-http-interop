@@ -1,3 +1,7 @@
+## [0.8.1] - 2023-10-16
+### Fixed
+- Empty body should produce empty stream
+
 ## [0.8.0] - 2023-08-24
 ### Changed
 - Split headers
@@ -49,6 +53,7 @@
 ### Added
 - Initial release
 
+[0.8.1]: https://github.com/f3ath/dart-http-interop/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/f3ath/dart-http-interop/compare/0.7.1...0.8.0
 [0.7.1]: https://github.com/f3ath/dart-http-interop/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/f3ath/dart-http-interop/compare/0.6.0...0.7.0
