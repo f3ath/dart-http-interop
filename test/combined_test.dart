@@ -7,13 +7,6 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
-  group('Body', () {
-    test('empty body has empty stream', () async {
-      expect(await Body.empty().bytes.isEmpty, isTrue);
-      expect(await Body('', utf8).bytes.isEmpty, isTrue);
-      expect(await Body.binary(Uint8List(0)).bytes.isEmpty, isTrue);
-    });
-  });
   group('Request', () {
     test('ctor', () async {
       final r = Request('gEt', Uri(), Body(), Headers());
@@ -43,13 +36,6 @@ void main() {
       expect(headers['accept']?.first, equals('text/plain'));
       expect(headers['AcCePt']?.first, equals('text/plain'));
     });
-    test('can be combined', () {
-      final headers = Headers.from({
-        'My-Values': ['', ' ', 'foo (bar)', 'foo "bar"', ' foo', 'foo ']
-      });
-      expect(headers.combine(),
-          equals({'My-Values': r'""," ",foo (bar),foo "bar"," foo","foo "'}));
-    });
   });
 
   group('Body', () {
@@ -62,6 +48,11 @@ void main() {
     });
     test('json encode/decode', () async {
       expect(await Body.text(json, utf8).decodeJson(), equals(object));
+    });
+    test('empty body has empty stream', () async {
+      expect(await Body().bytes.isEmpty, isTrue);
+      expect(await Body.text('', utf8).bytes.isEmpty, isTrue);
+      expect(await Body.binary(Uint8List(0)).bytes.isEmpty, isTrue);
     });
   });
 }

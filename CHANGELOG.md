@@ -1,7 +1,4 @@
-## [0.9.0] - 2023-10-09
-### Added
-- Headers combining logic
-
+## [1.0.0] - 2023-10-16
 ### Changed
 - Request constructor signature
 - Body constructors signature
@@ -64,7 +61,7 @@
 ### Added
 - Initial release
 
-[0.9.0]: https://github.com/f3ath/dart-http-interop/compare/0.8.0...0.9.0
+[1.0.0]: https://github.com/f3ath/dart-http-interop/compare/0.8.1...1.0.0
 [0.8.1]: https://github.com/f3ath/dart-http-interop/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/f3ath/dart-http-interop/compare/0.7.1...0.8.0
 [0.7.1]: https://github.com/f3ath/dart-http-interop/compare/0.7.0...0.7.1
