@@ -49,6 +49,11 @@ void main() {
     test('json encode/decode', () async {
       expect(await Body.text(json, utf8).decodeJson(), equals(object));
     });
+    test('stream', () async {
+      final stream = Stream.value(Uint8List.fromList(ascii.encode('Hello')));
+      final body = Body.stream(stream);
+      expect(await body.decode(ascii), equals('Hello'));
+    });
     test('empty body has empty stream', () async {
       expect(await Body().bytes.isEmpty, isTrue);
       expect(await Body.text('', utf8).bytes.isEmpty, isTrue);
