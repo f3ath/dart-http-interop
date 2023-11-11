@@ -6,5 +6,6 @@ This package provides a set of interfaces and models to decouple from the underl
 This means less boilerplate code and easier testing.
 
 Please see these implementations:
-- [http_interop_http](https://pub.dev/packages/http_interop_http) - wrapper over the standard Dart http client
-- [http_interop_io](https://pub.dev/packages/http_interop_io) - wrapper over the dart:io server
+- [http_interop_http](https://pub.dev/packages/http_interop_http) - a wrapper over the standard Dart HTTP client
+- [http_interop_io](https://pub.dev/packages/http_interop_io) - wrappers over the dart:io server and client
+- [http_interop_dio](https://pub.dev/packages/http_interop_dio) - a wrapper over Dio HTTP client adapter
