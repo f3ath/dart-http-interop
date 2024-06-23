@@ -1,7 +1,7 @@
 import 'package:http_interop/http_interop.dart';
 
 /// The request which is sent by the client and received by the server
-class Request extends Message {
+final class Request extends Message {
   Request(String method, this.uri, super.body, super.headers)
       : method = method.toLowerCase() {
     if (method.trim().isEmpty) {

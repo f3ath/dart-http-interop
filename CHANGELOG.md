@@ -1,3 +1,9 @@
+## [2.0.0] - 2024-06-23
+### Changed
+- `Handler` is now just a typedef
+- Dropped dependency on `http_parser`
+- Most of the classes are now final
+
 ## [1.0.1] - 2023-11-11
 ### Changed
 - Updated the README
@@ -65,6 +71,7 @@
 ### Added
 - Initial release
 
+[2.0.0]: https://github.com/f3ath/dart-http-interop/compare/1.0.1...2.0.0
 [1.0.1]: https://github.com/f3ath/dart-http-interop/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/f3ath/dart-http-interop/compare/0.8.1...1.0.0
 [0.8.1]: https://github.com/f3ath/dart-http-interop/compare/0.8.0...0.8.1

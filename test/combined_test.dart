@@ -36,6 +36,16 @@ void main() {
       expect(headers['accept']?.first, equals('text/plain'));
       expect(headers['AcCePt']?.first, equals('text/plain'));
     });
+    test('empty', () {
+      expect(Headers(), isEmpty);
+    });
+    test('fromEntries', () {
+      expect(
+          Headers.fromEntries({
+            'foo': ['bar'],
+          }.entries)['foo'],
+          equals(['bar']));
+    });
   });
 
   group('Body', () {
