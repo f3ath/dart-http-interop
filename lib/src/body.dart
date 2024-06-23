@@ -4,7 +4,7 @@ import 'dart:typed_data';
 /// HTTP Body.
 /// Essentially it is just a `Stream<Uint8List>` with a few
 /// useful constructors.
-class Body {
+final class Body {
   /// Creates a new empty body.
   Body() : bytes = Stream.empty();
 

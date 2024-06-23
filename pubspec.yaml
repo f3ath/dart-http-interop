@@ -1,16 +1,16 @@
 name: http_interop
 description: A thin abstraction layer for interoperability between HTTP client/server implementations.
-version: 1.0.1
+version: 2.0.0
 repository: https://github.com/f3ath/dart-http-interop
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
 
 dependencies:
-  http_parser: ^4.0.0
+  collection: ^1.19.0
 
 dev_dependencies:
-  lints: ^2.0.1
+  lints: ^4.0.0
   cider: ^0.2.3
   test: ^1.21.1
   check_coverage: ^0.0.2
