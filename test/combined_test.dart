@@ -44,7 +44,7 @@ void main() {
           Headers.fromEntries({
             'foo': ['bar'],
           }.entries)['foo'],
-          equals('bar'));
+          equals(['bar']));
     });
   });
 
