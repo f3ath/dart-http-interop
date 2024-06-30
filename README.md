@@ -1,20 +1,18 @@
 # http_interop
 
 This is a lightweight package that facilitates interoperability between different HTTP client and server implementations in Dart. 
-It defines the `Request` and `Response` classes and a universal client/server `Handler` interface with a single method: `Future<Response> handle(Request request)`.
+It defines the `Request` and `Response` classes and a universal client/server `Handler` interface: `Future<Response> Function(Request request)`.
 
 ## Motivation
 
 One of the most popular solutions for client-server interaction is an HTTP API where each request and response fit in a single HTTP message. 
 A prime example is the [pub.dev API](https://pub.dev/help/api). Implementing a client (or server, or both) for such an API often involves basing your client on top of an HTTP client, 
-leading to the risks of tight coupling with a particular HTTP client implementation. This coupling raises issues related to testability, potentially requiring unwanted mocking in unit-level tests o
-r relying on end-to-end tests, both of which can limit coverage and make testing cumbersome.
+leading to the risks of tight coupling with a particular HTTP client implementation. This coupling raises issues related to testability, potentially requiring unwanted mocking in unit-level tests or relying on end-to-end tests, both of which can limit coverage and make testing cumbersome.
 
 ## Solution
 
-With this package, rather than coupling to a specific HTTP-level implementation, you can implement a single `handle()` method. The `Request` and `Response` classes are simple Dart classes that can be 
-instantiated and analyzed directly in tests, offering a straightforward API. Developers are free to extend either or both of these classes or create their own implementations.
-
+With this package, rather than coupling to a specific HTTP-level implementation, you can implement a single `Handler` function. The `Request` and `Response` classes are simple Dart classes that can be 
+instantiated and analyzed directly in tests, offering a straightforward API.
 ## Pros
 
 - Decouples code from underlying HTTP delivery mechanisms.
