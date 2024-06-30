@@ -1,3 +1,7 @@
+## [2.0.1] - 2024-06-30
+### Fixed
+- Updated the docs and clarified the expectations for Hearders
+
 ## [2.0.0] - 2024-06-23
 ### Changed
 - `Handler` is now just a typedef
@@ -71,6 +75,7 @@
 ### Added
 - Initial release
 
+[2.0.1]: https://github.com/f3ath/dart-http-interop/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/f3ath/dart-http-interop/compare/1.0.1...2.0.0
 [1.0.1]: https://github.com/f3ath/dart-http-interop/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/f3ath/dart-http-interop/compare/0.8.1...1.0.0

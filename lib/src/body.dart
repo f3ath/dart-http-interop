@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-/// HTTP Body.
-/// Essentially it is just a `Stream<Uint8List>` with a few
+/// HTTP Body is just a `Stream<Uint8List>` with a few
 /// useful constructors.
 final class Body {
   /// Creates a new empty body.
