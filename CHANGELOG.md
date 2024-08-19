@@ -1,3 +1,8 @@
+## [2.1.0] - 2024-08-18
+### Added
+- Message context
+- Custom JSON encoding/decoding functions
+
 ## [2.0.1] - 2024-06-30
 ### Fixed
 - Updated the docs and clarified the expectations for Hearders
@@ -75,6 +80,7 @@
 ### Added
 - Initial release
 
+[2.1.0]: https://github.com/f3ath/dart-http-interop/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/f3ath/dart-http-interop/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/f3ath/dart-http-interop/compare/1.0.1...2.0.0
 [1.0.1]: https://github.com/f3ath/dart-http-interop/compare/1.0.0...1.0.1
