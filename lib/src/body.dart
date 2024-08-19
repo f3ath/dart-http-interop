@@ -20,7 +20,10 @@ final class Body {
 
   /// Creates a new instance by encoding the [object] into JSON.
   /// This method always uses UTF-8 encoding.
-  Body.json(Object? object) : this.text(jsonEncode(object), utf8);
+  /// Pass a custom [toEncodable] function to handle non-encodable objects.
+  Body.json(Object? object,
+      {Object? Function(Object? nonEncodable)? toEncodable})
+      : this.text(jsonEncode(object, toEncodable: toEncodable), utf8);
 
   /// Request body as a binary stream.
   final Stream<Uint8List> bytes;

@@ -9,5 +9,7 @@ extension BodyExt on Body {
   Future<String> decode(Encoding encoding) => encoding.decodeStream(bytes);
 
   /// Decodes the body into a JSON object.
-  Future<dynamic> decodeJson() async => jsonDecode(await decode(utf8));
+  Future<dynamic> decodeJson(
+          {Object? Function(Object? key, Object? value)? reviver}) async =>
+      jsonDecode(await decode(utf8), reviver: reviver);
 }

@@ -10,4 +10,8 @@ class Message {
 
   /// The bytes comprising the body of this response.
   final Body body;
+
+  /// Any additional context for this message. This is not part of the HTTP
+  /// message itself, but can be used to pass information between handlers.
+  final context = <String, Object?>{};
 }
