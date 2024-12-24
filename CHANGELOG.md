@@ -1,3 +1,7 @@
+## [2.1.2] - 2024-12-24
+### Changed
+- Bumped the lowest version of `collection` to 1.19
+
 ## [2.1.1] - 2024-10-01
 ### Changed
 - Lowered the required version of `collection`
@@ -9,7 +13,7 @@
 
 ## [2.0.1] - 2024-06-30
 ### Fixed
-- Updated the docs and clarified the expectations for Hearders
+- Updated the docs and clarified the expectations for `Headers`
 
 ## [2.0.0] - 2024-06-23
 ### Changed
@@ -84,6 +88,7 @@
 ### Added
 - Initial release
 
+[2.1.2]: https://github.com/f3ath/dart-http-interop/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/f3ath/dart-http-interop/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/f3ath/dart-http-interop/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/f3ath/dart-http-interop/compare/2.0.0...2.0.1
