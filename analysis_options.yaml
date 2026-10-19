@@ -1,6 +1,10 @@
 include: package:lints/recommended.yaml
-
+formatter:
+  page_width: 100
 linter:
   rules:
-    - sort_constructors_first
-    - sort_unnamed_constructors_first
+    use_primary_constructors: true
+    use_declaring_parameters: true
+    unnecessary_primary_constructor_body: true
+    unnecessary_type_name_in_constructor: true
+    prefer_if_null_operators: true

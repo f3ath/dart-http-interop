@@ -1,17 +1,16 @@
 import 'package:http_interop/src/body.dart';
 import 'package:http_interop/src/headers.dart';
 
-/// An HTTP message where the body is known.
-class Message {
-  Message(this.body, this.headers);
+/// An HTTP message with a body and headers.
+class Message(
+  /// The message body.
+  final Body body,
 
   /// Message headers.
-  final Headers headers;
-
-  /// The bytes comprising the body of this response.
-  final Body body;
-
-  /// Any additional context for this message. This is not part of the HTTP
-  /// message itself, but can be used to pass information between handlers.
+  final Headers headers,
+) {
+  /// Additional context shared between handlers.
+  ///
+  /// This context is not part of the HTTP message.
   final context = <String, Object?>{};
 }
