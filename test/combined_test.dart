@@ -14,6 +14,7 @@ void main() {
       expect(r.headers, isEmpty);
       expect(r.method, equals('gEt'));
     });
+  });
 
   group('Response', () {
     test('ctor', () async {
