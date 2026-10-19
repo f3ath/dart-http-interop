@@ -1,30 +1,38 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-/// HTTP Body is just a `Stream<Uint8List>` with a few
-/// useful constructors.
-final class Body {
+/// An HTTP body backed by a stream of byte chunks.
+///
+/// The stream is retained without being consumed, buffered, or copied.
+/// Reading the body follows the supplied stream's subscription rules; callers
+/// must not assume that it can be read more than once. A broadcast stream does
+/// not guarantee that later listeners receive previously emitted chunks.
+///
+/// Middleware that reads a body before forwarding it must provide a replacement
+/// body containing the consumed bytes. Retries likewise require a fresh body
+/// unless the supplied stream explicitly supports replay.
+final class Body(
+  /// The stream of byte chunks that make up the body.
+  final Stream<Uint8List> bytes,
+) {
   /// Creates a new empty body.
-  Body() : bytes = Stream.empty();
+  new empty() : this(Stream.empty());
 
-  /// Create a new instance from [text] encoded with [encoding].
-  Body.text(String text, Encoding encoding)
-      : this.binary(Uint8List.fromList(encoding.encode(text)));
+  /// Creates a new instance from [text] encoded with [encoding].
+  new text(String text, {Encoding encoding = utf8})
+    : this.binary(Uint8List.fromList(encoding.encode(text)));
 
-  /// Create a new instance from a single piece of binary [data]..
-  Body.binary(Uint8List data)
-      : bytes = data.isEmpty ? Stream.empty() : Stream.value(data);
+  /// Creates a new instance from a single piece of binary [data].
+  ///
+  /// Retains [data] without copying it. Changes to the buffer before consumption
+  /// are visible to the reader, so callers must not mutate it while in use.
+  /// Pass `Uint8List.fromList(data)` to give the body an independent copy.
+  new binary(Uint8List data) : this(data.isEmpty ? Stream.empty() : Stream.value(data));
 
-  /// Creates a new instance from a binary stream.
-  Body.stream(this.bytes);
-
-  /// Creates a new instance by encoding the [object] into JSON.
-  /// This method always uses UTF-8 encoding.
-  /// Pass a custom [toEncodable] function to handle non-encodable objects.
-  Body.json(Object? object,
-      {Object? Function(Object? nonEncodable)? toEncodable})
-      : this.text(jsonEncode(object, toEncodable: toEncodable), utf8);
-
-  /// Request body as a binary stream.
-  final Stream<Uint8List> bytes;
+  /// Creates a new instance by encoding [object] as UTF-8 JSON.
+  ///
+  /// Pass a custom [toEncodable] function to handle objects that cannot be
+  /// encoded directly.
+  new json(Object? object, {Object? Function(Object?)? toEncodable})
+    : this.text(jsonEncode(object, toEncodable: toEncodable), encoding: utf8);
 }

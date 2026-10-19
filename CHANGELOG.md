@@ -1,10 +1,17 @@
+## [3.0.0] - 2026-10-18
+### Changed
+- Request methods are preserved without validation or normalization. Transport
+adapters are responsible for validating outgoing request methods.
+- Slight changes in Body constructors API.
+- Documentation improvements.
+
 ## [2.1.2] - 2024-12-24
 ### Changed
-- Bumped the lowest version of `collection` to 1.19
+- Raised the minimum version of `collection` to 1.19
 
 ## [2.1.1] - 2024-10-01
 ### Changed
-- Lowered the required version of `collection`
+- Lowered the minimum required version of `collection`
 
 ## [2.1.0] - 2024-08-18
 ### Added
@@ -27,27 +34,27 @@
 
 ## [1.0.0] - 2023-10-16
 ### Changed
-- Request constructor signature
-- Body constructors signature
+- `Request` constructor signature
+- `Body` constructor signatures
 
 ### Removed
-- Method class
+- `Method` class
 
 ## [0.8.1] - 2023-10-16
 ### Fixed
-- Empty body should produce empty stream
+- Empty bodies should produce empty streams
 
 ## [0.8.0] - 2023-08-24
 ### Changed
 - Split headers
 
 ### Removed
-- LoggingHandler
+- `LoggingHandler`
 
 ## [0.7.1] - 2023-08-23
 ### Fixed
 - Body bytes must be immutable
-- Body.empty should produce a new stream instance every time
+- `Body.empty` should produce a new stream instance each time
 
 ## [0.7.0] - 2023-08-20
 ### Changed
@@ -55,11 +62,11 @@
 
 ## [0.6.0] - 2023-08-16
 ### Changed
-- Bump http to 1.1.0
+- Updated `http` to 1.1.0
 - `Request`/`Response` constructor signatures
 
 ### Fixed
-- Removed dependency on the `http` package
+- Removed the dependency on the `http` package
 
 ## [0.4.0] - 2023-05-07
 ### Changed
@@ -67,27 +74,28 @@
 
 ## [0.3.0] - 2023-05-07
 ### Added
-- HttpMethod class
+- `HttpMethod` class
 
 ### Changed
-- Request and Response signature
+- `Request` and `Response` signatures
 
 ## [0.2.0] - 2023-05-06
 ### Added
-- Binary messages support
+- Binary message support
 
 ## [0.1.0] - 2023-04-22
 ### Changed
-- Add `Http` prefix
+- Added the `Http` prefix
 
 ## [0.0.2] - 2023-04-17
 ### Added
-- Export the `Headers` mixin
+- Exported the `Headers` mixin
 
 ## [0.0.1] - 2023-04-16
 ### Added
 - Initial release
 
+[3.0.0]: https://github.com/f3ath/dart-http-interop/compare/2.1.2...3.0.0
 [2.1.2]: https://github.com/f3ath/dart-http-interop/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/f3ath/dart-http-interop/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/f3ath/dart-http-interop/compare/2.0.1...2.1.0

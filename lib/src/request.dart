@@ -1,17 +1,15 @@
 import 'package:http_interop/http_interop.dart';
 
-/// The request which is sent by the client and received by the server
-final class Request extends Message {
-  Request(String method, this.uri, super.body, super.headers)
-      : method = method.toLowerCase() {
-    if (method.trim().isEmpty) {
-      throw ArgumentError('Method name cannot be empty', 'method');
-    }
-  }
+/// An HTTP request sent by a client and received by a server.
+///
+/// The method is stored as supplied. Transport adapters are responsible for
+/// validating outgoing request methods.
+final class Request(
+  /// The request method, without validation or normalization.
+  final String method,
 
-  /// Requested URI
-  final Uri uri;
-
-  /// Request method, lowercase.
-  final String method;
-}
+  /// The requested URI.
+  final Uri uri,
+  super.body,
+  super.headers,
+) extends Message;
