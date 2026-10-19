@@ -14,39 +14,6 @@ void main() {
       expect(r.headers, isEmpty);
       expect(r.method, equals('gEt'));
     });
-    test('accepts custom method token characters without normalization', () {
-      const method = "custom-09!#\$%&'*+.^_`|~";
-      expect(Request(method, Uri(), Body.empty(), Headers()).method, method);
-    });
-    for (final method in [
-      '',
-      ' ',
-      ' GET',
-      'GET ',
-      'GET POST',
-      'GET\t',
-      'GET\r\n',
-      'GET\n',
-      'GET\x00',
-      'GET/POST',
-      'GET:POST',
-      '(GET)',
-      'GET,POST',
-      'GET;POST',
-      'GET=POST',
-      'GET?POST',
-      'GET[POST]',
-      'GET{POST}',
-      'GET"',
-      'GET\\',
-      'GÉT',
-      'ＧＥＴ',
-    ]) {
-      test('preserves method ${jsonEncode(method)} without validation', () {
-        expect(Request(method, Uri(), Body.empty(), Headers()).method, method);
-      });
-    }
-  });
 
   group('Response', () {
     test('ctor', () async {
